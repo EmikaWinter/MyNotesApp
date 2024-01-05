@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="purple_dark">#211F54</color>
+    <color name="purple_light">#E2E0FF</color>
+    <color name="purple_soft">#B5AFFF</color>
+    <color name="primary_purple">#4A3AFF</color>
+    <color name="secondary_purple">#453AD1</color>
+    <color name="baby_purple">#766CFF</color>
+    <color name="snowy_purple">#F4F3FF</color>
+
+    <color name="text_color">#FF000000</color>
+    <color name="text_logo_color">#211F54</color>
+
+    <color name="hint_color">#757575</color>
+</resources>

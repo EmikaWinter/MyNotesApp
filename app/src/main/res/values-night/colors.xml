@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_color">#FFFFFFFF</color>
+    <color name="text_logo_color">#E2E0FF</color>
+    <color name="snowy_purple">#4A3AFF</color>
+    <color name="purple_light">#766CFF</color>
+</resources>
