@@ -20,6 +20,8 @@
         android:id="@+id/circle_indicator"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        app:ci_drawable_unselected="@drawable/circle_indicator_grey"
+        app:ci_drawable="@drawable/circle_indicator_purple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>

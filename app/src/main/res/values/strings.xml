@@ -22,10 +22,12 @@
     <string name="create">Create</string>
 
     <!--Validate-->
-    <string name="email_cant_be_empty">Email can not be empty</string>
+    <string name="email_cant_be_empty">Email must not be empty</string>
     <string name="email_incorrect">Incorrect Email</string>
-    <string name="password_cant_be_empty">Password can not be empty</string>
+    <string name="password_cant_be_empty">Password must not be empty</string>
     <string name="password_incorrect">Incorrect password</string>
+    <string name="name_3_to_255_field">The field must contain from 3 to 255 characters</string>
+    <string name="name_empty_field">The field must not be empty</string>
     <string name="return_to">Return to </string>
 
 </resources>

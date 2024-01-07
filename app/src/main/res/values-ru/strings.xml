@@ -22,5 +22,7 @@
     <string name="email_incorrect">Некорректный Email</string>
     <string name="password_cant_be_empty">Пароль не может быть пустым</string>
     <string name="password_incorrect">Некорректный пароль</string>
+    <string name="name_3_to_255_field">Поле должно содержать от 3 до 255 символов</string>
+    <string name="name_empty_field">Поле не может быть пустым</string>
     <string name="return_to">Вернуться на страницу </string>
 </resources>

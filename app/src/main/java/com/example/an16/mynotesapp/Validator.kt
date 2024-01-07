@@ -4,6 +4,14 @@ import java.util.regex.Pattern
 
 class Validator {
 
+
+    fun validateName(editText: String): Status{
+        return when {
+            editText.isBlank() || editText.isEmpty() -> Status.EMPTY_FIELD
+            editText.length < 3 || editText.length > 255 -> Status.INCORRECT_FORMAT
+            else -> Status.CORRECT
+        }
+    }
     fun validateEmail(editText: String): Status {
         return when {
             editText.isEmpty() -> Status.EMPTY_FIELD
@@ -12,7 +20,7 @@ class Validator {
         }
     }
 
-    fun validatePassword(editText: String): Status{
+    fun validatePassword(editText: String): Status {
         return when {
             editText.isEmpty() -> Status.EMPTY_FIELD
             !isPasswordValid(editText) -> Status.INCORRECT_FORMAT
@@ -28,16 +36,13 @@ class Validator {
     }
 
     private fun isPasswordValid(password: String): Boolean {
-        val passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!])(?=\\S+\$).{6,50}\$"
+        val passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!;:?_-])(?=\\S+\$).{6,50}\$"
         return password.matches(passwordRegex.toRegex())
     }
-
-
 }
 
 enum class Status {
     CORRECT,
     EMPTY_FIELD,
     INCORRECT_FORMAT,
-
 }
