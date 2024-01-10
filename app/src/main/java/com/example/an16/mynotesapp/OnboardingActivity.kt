@@ -32,7 +32,7 @@ class OnboardingActivity : AppCompatActivity() {
 
     private fun setData(){
         viewPagerAdapter = ViewPagerAdapter()
-        val data = SetViewPagerDummy.setDataPager()
+        val data = ViewPagerAdapter.setDataPager()
         viewPagerAdapter.setViewPagerAdapter(data)
     }
 }

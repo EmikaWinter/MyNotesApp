@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="dp_0">0dp</dimen>
+    <dimen name="dp_48">48dp</dimen>
     <dimen name="dp_200">200dp</dimen>
     <dimen name="dp_100">100dp</dimen>
 
+    <!--SignUp Layout-->
+    <dimen name="signup_LL_width">350dp</dimen>
+    <dimen name="signup_LL_height">475dp</dimen>
+
+    <!--LogIn Layout-->
+    <dimen name="login_LL_width">350dp</dimen>
+    <dimen name="login_LL_height">270dp</dimen>
+
+    <!--    Margins-->
+    <dimen name="margin_4dp">4dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="margin_24dp">24dp</dimen>
+    <dimen name="margin_36dp">36dp</dimen>
+    <dimen name="margin_64dp">64dp</dimen>
+    <dimen name="margin_76dp">98dp</dimen>
+
+<!--    EditText-->
+    <dimen name="title_height">64dp</dimen>
+    <dimen name="message_height">200dp</dimen>
+    <!--    Buttons-->
+    <dimen name="button_width">200dp</dimen>
+    <dimen name="button_height">60dp</dimen>
 
     <!--Text sizes-->
     <dimen name="text_size_extra_small">16sp</dimen>
