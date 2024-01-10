@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="open">Открыть</string>
+    <string name="close">Закрыть</string>
+    <string name="skip">Пропустить</string>
+    <string name="back">Назад</string>
+    <string name="sign_up">Регистрация</string>
+    <string name="log_in">Войти</string>
+    <string name="you_have_an_account">Уже есть аккаунт?</string>
+
+    <string name="first_name">Имя</string>
+    <string name="last_name">Фамилия</string>
+    <string name="password">Пароль</string>
+
+    <string name="write">Пиши</string>
+    <string name="compose">Составляй</string>
+    <string name="memorize">Запоминай</string>
+    <string name="create">Создать</string>
+
+    <!--Validate-->
+    <string name="email_cant_be_empty">Email не может быть пустым</string>
+    <string name="email_incorrect">Некорректный Email</string>
+    <string name="password_cant_be_empty">Пароль не может быть пустым</string>
+    <string name="password_incorrect">Некорректный пароль</string>
+    <string name="name_3_to_255_field">Поле должно содержать от 3 до 255 символов</string>
+    <string name="name_empty_field">Поле не может быть пустым</string>
+    <string name="return_to">Вернуться на страницу </string>
+</resources>

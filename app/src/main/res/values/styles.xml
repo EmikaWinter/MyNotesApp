@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextLogoStyle">
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:textColor">@color/text_logo_color</item>
+        <item name="android:fontFamily">@font/font_italic</item>
+    </style>
+
+    <style name="TextLogoStyle.Small">
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="TextHeaderStyle">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:fontFamily">@font/font_extra_bold</item>
+    </style>
+
+    <style name="TextRegularStyle">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:fontFamily">@font/font_regular</item>
+    </style>
+
+    <style name="TextRegularStyle.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextRegularStyle.Small">
+        <item name="android:textSize">@dimen/text_size_extra_small</item>
+    </style>
+
+    <style name="TextRegularStyle.Small.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextButtonStyle">
+        <item name="android:fontFamily">@font/font_regular</item>
+    </style>
+</resources>

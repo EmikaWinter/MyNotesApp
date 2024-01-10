@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name" translatable="false">My Notes App</string>
+    <string name="logo" translatable="false">My Notes</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="skip">Skip</string>
+    <string name="back">Back</string>
+    <string name="sign_up">Sign-Up</string>
+    <string name="log_in">Log-In</string>
+    <string name="you_have_an_account">You have an account?</string>
+
+    <!--SignUp & LogIn -->
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="password">Password</string>
+
+    <!--Onboarding -->
+    <string name="write">Write</string>
+    <string name="compose">Compose</string>
+    <string name="memorize">Memorize</string>
+    <string name="create">Create</string>
+
+    <!--Validate-->
+    <string name="email_cant_be_empty">Email must not be empty</string>
+    <string name="email_incorrect">Incorrect Email</string>
+    <string name="password_cant_be_empty">Password must not be empty</string>
+    <string name="password_incorrect">Incorrect password</string>
+    <string name="name_3_to_255_field">The field must contain from 3 to 255 characters</string>
+    <string name="name_empty_field">The field must not be empty</string>
+    <string name="return_to">Return to </string>
+
+</resources>
