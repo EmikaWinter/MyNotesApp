@@ -31,6 +31,13 @@ class Validator {
         }
     }
 
+    fun validateText(editText: String): Boolean {
+        if (editText.isBlank() || editText.isEmpty()) {
+            return false
+        }
+        return true
+    }
+
     private fun isEmailValid(email: String): Boolean {
         val emailRegex = "^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})$"
         val pattern = Pattern.compile(emailRegex)

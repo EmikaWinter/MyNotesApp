@@ -12,12 +12,14 @@
     <string name="you_have_an_account">You have an account?</string>
     <string name="return_to">Return to </string>
 
-<!--    Notes-->
+    <!--    Notes-->
     <string name="add_new">Add new</string>
     <string name="add">Add</string>
     <string name="add_note">Add note</string>
     <string name="title">Title</string>
     <string name="text">Text</string>
+    <string name="saved">Saved</string>
+    <string name="empty_note">Can not save empty note!</string>
 
     <!--SignUp & LogIn -->
     <string name="first_name">First name</string>

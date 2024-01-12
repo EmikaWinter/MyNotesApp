@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="dp_0">0dp</dimen>
+    <dimen name="dp_40">40dp</dimen>
     <dimen name="dp_48">48dp</dimen>
     <dimen name="dp_200">200dp</dimen>
     <dimen name="dp_100">100dp</dimen>
@@ -30,6 +31,7 @@
     <dimen name="button_height">60dp</dimen>
 
     <!--Text sizes-->
+    <dimen name="text_size_for_date">12sp</dimen>
     <dimen name="text_size_extra_small">16sp</dimen>
     <dimen name="text_size_small">24sp</dimen>
     <dimen name="text_size_medium">36sp</dimen>

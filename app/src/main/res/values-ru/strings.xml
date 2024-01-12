@@ -16,6 +16,8 @@
     <string name="add_note">Добавить заметку</string>
     <string name="title">Заголовок</string>
     <string name="text">Текст</string>
+    <string name="saved">Сохранено</string>
+    <string name="empty_note">Невозможно сохранить пустую заметку!</string>
 
     <!--SignUp & LogIn -->
     <string name="first_name">Имя</string>

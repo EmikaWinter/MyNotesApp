@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import androidx.viewpager2.widget.ViewPager2
+import com.example.an16.mynotesapp.viewPager.ViewPagerAdapter
 import me.relex.circleindicator.CircleIndicator3
 
 class OnboardingActivity : AppCompatActivity() {

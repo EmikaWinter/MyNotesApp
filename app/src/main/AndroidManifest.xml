@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyNotesApp"
         tools:targetApi="31">
+        <activity android:name=".NoteActivity" />
         <activity android:name=".AddNoteActivity" />
         <activity android:name=".AllNotesActivity" />
         <activity android:name=".SignupActivity" />
