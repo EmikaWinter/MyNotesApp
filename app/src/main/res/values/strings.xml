@@ -1,13 +1,25 @@
 <resources>
     <string name="app_name" translatable="false">My Notes App</string>
     <string name="logo" translatable="false">My Notes</string>
+
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="skip">Skip</string>
     <string name="back">Back</string>
     <string name="sign_up">Sign-Up</string>
     <string name="log_in">Log-In</string>
+    <string name="log_out">Logout</string>
     <string name="you_have_an_account">You have an account?</string>
+    <string name="return_to">Return to </string>
+
+    <!--    Notes-->
+    <string name="add_new">Add new</string>
+    <string name="add">Add</string>
+    <string name="add_note">Add note</string>
+    <string name="title">Title</string>
+    <string name="text">Text</string>
+    <string name="saved">Saved</string>
+    <string name="empty_note">Can not save empty note!</string>
 
     <!--SignUp & LogIn -->
     <string name="first_name">First name</string>
@@ -28,6 +40,6 @@
     <string name="password_incorrect">Incorrect password</string>
     <string name="name_3_to_255_field">The field must contain from 3 to 255 characters</string>
     <string name="name_empty_field">The field must not be empty</string>
-    <string name="return_to">Return to </string>
+
 
 </resources>

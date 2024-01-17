@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import androidx.viewpager2.widget.ViewPager2
+import com.example.an16.mynotesapp.viewPager.ViewPagerAdapter
 import me.relex.circleindicator.CircleIndicator3
 
 class OnboardingActivity : AppCompatActivity() {
@@ -32,7 +33,7 @@ class OnboardingActivity : AppCompatActivity() {
 
     private fun setData(){
         viewPagerAdapter = ViewPagerAdapter()
-        val data = SetViewPagerDummy.setDataPager()
+        val data = ViewPagerAdapter.setDataPager()
         viewPagerAdapter.setViewPagerAdapter(data)
     }
 }

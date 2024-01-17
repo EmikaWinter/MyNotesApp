@@ -17,6 +17,10 @@
         <item name="android:fontFamily">@font/font_extra_bold</item>
     </style>
 
+    <style name="TextHeaderStyle.Small">
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
     <style name="TextRegularStyle">
         <item name="android:textSize">@dimen/text_size_small</item>
         <item name="android:textColor">@color/text_color</item>

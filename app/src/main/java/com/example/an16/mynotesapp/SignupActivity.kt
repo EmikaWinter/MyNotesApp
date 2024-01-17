@@ -9,6 +9,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class SignupActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
@@ -69,7 +70,7 @@ class SignupActivity : AppCompatActivity() {
                 emailInputLayout.error.isNullOrEmpty() &&
                 passwordInputLayout.error.isNullOrEmpty()
             ) {
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, AllNotesActivity::class.java)
                 startActivity(intent)
             }
         }

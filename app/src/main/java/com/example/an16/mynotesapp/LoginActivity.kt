@@ -9,6 +9,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class LoginActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -45,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
             if (loginInputLayout.error.isNullOrEmpty() && passwordInputLayout.error.isNullOrEmpty()) {
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, AllNotesActivity::class.java)
                 startActivity(intent)
             }
         }
