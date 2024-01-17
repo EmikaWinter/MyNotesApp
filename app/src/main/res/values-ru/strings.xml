@@ -2,6 +2,7 @@
 <resources>
     <string name="open">Открыть</string>
     <string name="edit">Редактировать</string>
+    <string name="edit_note">Редактировать заметку</string>
     <string name="edited">Текст отредактирован</string>
     <string name="copy">Скопировать текст</string>
     <string name="copied">Текст скопирован</string>

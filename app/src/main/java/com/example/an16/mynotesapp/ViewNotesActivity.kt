@@ -1,5 +1,6 @@
 package com.example.an16.mynotesapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.EditText
@@ -24,7 +25,8 @@ class ViewNotesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_notes)
 
-        val addBtn = findViewById<TextView>(R.id.add_new_textView)
+        val addNew = findViewById<TextView>(R.id.add_new_textView)
+        val logout = findViewById<TextView>(R.id.logout_textView)
 
         val recyclerView = findViewById<RecyclerView>(R.id.all_notes_recycler_view)
 
@@ -41,7 +43,11 @@ class ViewNotesActivity : AppCompatActivity() {
 
         recyclerView.adapter = noteAdapter
 
-        addBtn.setOnClickListener {
+        logout.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
+
+        addNew.setOnClickListener {
             addNote()
         }
     }

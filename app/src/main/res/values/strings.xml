@@ -4,6 +4,7 @@
 
     <string name="open">Open</string>
     <string name="edit">Edit</string>
+    <string name="edit_note">Edit note</string>
     <string name="edited">Text has been edited</string>
     <string name="copy">Copy text</string>
     <string name="copied">Text has been copied</string>

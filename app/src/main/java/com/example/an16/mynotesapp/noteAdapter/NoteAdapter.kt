@@ -1,5 +1,7 @@
 package com.example.an16.mynotesapp.noteAdapter
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +11,7 @@ import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.recyclerview.widget.RecyclerView
 import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.model.Note
@@ -45,7 +48,7 @@ class NoteAdapter(val context: Context, val notesList: ArrayList<Note>) :
                 when (it.itemId) {
                     R.id.edit_option -> {
 //                        TODO correct editText with display previous text
-                        val viewItem = LayoutInflater.from(context).inflate(R.layout.add_note_item, null)
+                        val viewItem = LayoutInflater.from(context).inflate(R.layout.edit_note_item, null)
                         val title = viewItem.findViewById<EditText>(R.id.title_edit_text)
                         val text = viewItem.findViewById<EditText>(R.id.text_edit_text)
 
@@ -70,8 +73,11 @@ class NoteAdapter(val context: Context, val notesList: ArrayList<Note>) :
                     }
 
                     R.id.copy_option -> {
-//                        TODO copy text
-                        Toast.makeText(context, "todo copy", Toast.LENGTH_SHORT).show()
+
+                        val clipboardManager = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                        val clipData = ClipData.newPlainText("text", textItem.text.toString())
+                        clipboardManager.setPrimaryClip(clipData)
+                        Toast.makeText(context, R.string.copied, Toast.LENGTH_SHORT).show()
                         true
                     }
 
