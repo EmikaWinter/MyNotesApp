@@ -70,7 +70,7 @@ class SignupActivity : AppCompatActivity() {
                 emailInputLayout.error.isNullOrEmpty() &&
                 passwordInputLayout.error.isNullOrEmpty()
             ) {
-                val intent = Intent(this, AllNotesActivity::class.java)
+                val intent = Intent(this, ViewNotesActivity::class.java)
                 startActivity(intent)
             }
         }

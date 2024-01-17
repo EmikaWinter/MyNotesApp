@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
             if (loginInputLayout.error.isNullOrEmpty() && passwordInputLayout.error.isNullOrEmpty()) {
-                val intent = Intent(this, AllNotesActivity::class.java)
+                val intent = Intent(this, ViewNotesActivity::class.java)
                 startActivity(intent)
             }
         }

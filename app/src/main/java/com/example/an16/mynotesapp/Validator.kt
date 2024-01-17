@@ -9,7 +9,7 @@ class Validator {
 
     fun validateName(editText: String): Status {
         return when {
-            editText.isBlank() || editText.isEmpty() -> Status.EMPTY_FIELD
+            editText.isBlank() -> Status.EMPTY_FIELD
             editText.length < MIN_NAME_LENGTH || editText.length > MAX_NAME_LENGTH -> Status.INCORRECT_FORMAT
             else -> Status.CORRECT
         }
@@ -17,7 +17,7 @@ class Validator {
 
     fun validateEmail(editText: String): Status {
         return when {
-            editText.isEmpty() -> Status.EMPTY_FIELD
+            editText.isBlank() -> Status.EMPTY_FIELD
             !isEmailValid(editText) -> Status.INCORRECT_FORMAT
             else -> Status.CORRECT
         }
@@ -25,14 +25,14 @@ class Validator {
 
     fun validatePassword(editText: String): Status {
         return when {
-            editText.isEmpty() -> Status.EMPTY_FIELD
+            editText.isBlank() -> Status.EMPTY_FIELD
             !isPasswordValid(editText) -> Status.INCORRECT_FORMAT
             else -> Status.CORRECT
         }
     }
 
     fun validateText(editText: String): Boolean {
-        if (editText.isBlank() || editText.isEmpty()) {
+        if (editText.isBlank()) {
             return false
         }
         return true
