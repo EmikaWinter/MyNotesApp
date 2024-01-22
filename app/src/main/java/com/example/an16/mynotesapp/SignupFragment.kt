@@ -26,7 +26,6 @@ class SignupFragment : Fragment() {
         binding?.signupToLogin?.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container, LoginFragment())
-                .addToBackStack(null)
                 .commit()
         }
 
@@ -83,7 +82,6 @@ class SignupFragment : Fragment() {
             ) {
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.container, AllNotesFragment())
-                    .addToBackStack(null)
                     .commit()
             }
         }

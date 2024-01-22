@@ -9,7 +9,7 @@
     <string name="copy">Copy text</string>
     <string name="copied">Text has been copied</string>
     <string name="delete">Delete</string>
-    <string name="are_you_shure_to_delete">Are you shure to delete?</string>
+    <string name="alert_dialog_delete">Are you shure you want to delete?</string>
     <string name="deleted">Note deleted</string>
     <string name="close">Close</string>
     <string name="skip">Skip</string>
@@ -17,6 +17,7 @@
     <string name="sign_up">Sign-Up</string>
     <string name="log_in">Log-In</string>
     <string name="log_out">Logout</string>
+    <string name="alert_dialog_logout">Are you sure you want to log out?</string>
     <string name="you_have_an_account">You have an account?</string>
     <string name="return_to">Return to </string>
     <string name="ok">Ok</string>

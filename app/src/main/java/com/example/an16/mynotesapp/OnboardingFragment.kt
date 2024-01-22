@@ -29,7 +29,6 @@ class OnboardingFragment : Fragment() {
         binding?.skip?.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container, SignupFragment())
-                .addToBackStack(null)
                 .commit()
         }
 

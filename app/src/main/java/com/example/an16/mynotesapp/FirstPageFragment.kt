@@ -26,13 +26,11 @@ class FirstPageFragment : Fragment() {
         binding?.openButton?.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container, OnboardingFragment())
-                .addToBackStack(null)
                 .commit()
         }
         binding?.loginTextView?.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container, LoginFragment())
-                .addToBackStack(null)
                 .commit()
         }
     }

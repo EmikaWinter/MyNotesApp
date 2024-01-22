@@ -26,7 +26,6 @@ class LoginFragment : Fragment() {
         binding?.loginToSignup?.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container, SignupFragment())
-                .addToBackStack(null)
                 .commit()
         }
 
@@ -59,7 +58,6 @@ class LoginFragment : Fragment() {
             if (loginInputLayout?.error.isNullOrEmpty() && passwordInputLayout?.error.isNullOrEmpty()) {
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.container, AllNotesFragment())
-                    .addToBackStack(null)
                     .commit()
             }
         }

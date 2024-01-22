@@ -43,26 +43,33 @@ class NoteAdapter(val context: Context, val notesList: ArrayList<Note>) :
             val popupMenus = PopupMenu(context, view)
             val position = notesList[adapterPosition]
             popupMenus.inflate(R.menu.context_menu)
-            popupMenus.setOnMenuItemClickListener {
-                when (it.itemId) {
+            popupMenus.setOnMenuItemClickListener {menuItem->
+                when (menuItem.itemId) {
                     R.id.edit_option -> {
+
+//                        val id = AllNotesFragment().arguments?.getInt("id", 1)
+//                        val note: Note? = NotesDatabase.notes.find { it.id == id }
+//
+//                        EditNoteDialogFragment().apply {
+//                            arguments = bundleOf("title" to note?.title)
+//                            arguments = bundleOf("text" to note?.text)
+//                        }.show(AllNotesFragment().childFragmentManager, null)
 //                        TODO correct editText with display previous text
-                        val viewItem = LayoutInflater.from(context).inflate(R.layout.edit_note_item, null)
+                        val viewItem =
+                            LayoutInflater.from(context).inflate(R.layout.dialog_edit_note, null)
                         val title = viewItem.findViewById<EditText>(R.id.title_edit_text)
                         val text = viewItem.findViewById<EditText>(R.id.text_edit_text)
 
                         MaterialAlertDialogBuilder(context)
                             .setView(viewItem)
-                            .setPositiveButton(R.string.ok){
-                                dialog,_ ->
+                            .setPositiveButton(R.string.ok) { dialog, _ ->
                                 position.title = title.text.toString()
                                 position.text = text.text.toString()
                                 notifyDataSetChanged()
                                 Toast.makeText(context, R.string.edited, Toast.LENGTH_SHORT).show()
                                 dialog.dismiss()
                             }
-                            .setNegativeButton(R.string.cancel){
-                                dialog, _ ->
+                            .setNegativeButton(R.string.cancel) { dialog, _ ->
                                 dialog.dismiss()
                             }
                             .create()
@@ -73,7 +80,8 @@ class NoteAdapter(val context: Context, val notesList: ArrayList<Note>) :
 
                     R.id.copy_option -> {
 
-                        val clipboardManager = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                        val clipboardManager =
+                            context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                         val clipData = ClipData.newPlainText("text", textItem.text.toString())
                         clipboardManager.setPrimaryClip(clipData)
                         Toast.makeText(context, R.string.copied, Toast.LENGTH_SHORT).show()
@@ -85,16 +93,14 @@ class NoteAdapter(val context: Context, val notesList: ArrayList<Note>) :
                         MaterialAlertDialogBuilder(context)
                             .setTitle(R.string.delete)
                             .setIcon(R.drawable.ic_warning)
-                            .setMessage(R.string.are_you_shure_to_delete)
-                            .setPositiveButton(R.string.yes){
-                                dialog, _ ->
+                            .setMessage(R.string.alert_dialog_delete)
+                            .setPositiveButton(R.string.yes) { dialog, _ ->
                                 notesList.removeAt(adapterPosition)
                                 notifyDataSetChanged()
                                 dialog.dismiss()
                                 Toast.makeText(context, R.string.deleted, Toast.LENGTH_SHORT).show()
                             }
-                            .setNegativeButton(R.string.no){
-                                dialog, _ ->
+                            .setNegativeButton(R.string.no) { dialog, _ ->
                                 dialog.dismiss()
                             }
                             .create()

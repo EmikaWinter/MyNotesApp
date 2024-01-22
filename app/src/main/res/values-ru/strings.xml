@@ -7,7 +7,7 @@
     <string name="copy">Скопировать текст</string>
     <string name="copied">Текст скопирован</string>
     <string name="delete">Удалить</string>
-    <string name="are_you_shure_to_delete">Вы точно хотите удалить?</string>
+    <string name="alert_dialog_delete">Вы действительно хотите удалить?</string>
     <string name="deleted">Запись удалена</string>
     <string name="close">Закрыть</string>
     <string name="skip">Пропустить</string>
@@ -15,6 +15,7 @@
     <string name="sign_up">Регистрация</string>
     <string name="log_in">Войти</string>
     <string name="log_out">Выйти</string>
+    <string name="alert_dialog_logout">Вы действительно хотите выйти??</string>
     <string name="you_have_an_account">Уже есть аккаунт?</string>
     <string name="return_to">Вернуться на страницу </string>
     <string name="ok">Ок</string>
