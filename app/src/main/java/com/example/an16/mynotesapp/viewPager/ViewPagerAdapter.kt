@@ -14,7 +14,7 @@ class ViewPagerAdapter : RecyclerView.Adapter<ViewPagerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.vp_items, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.vp_item, parent, false)
         )
     }
 

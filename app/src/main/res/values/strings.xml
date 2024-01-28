@@ -3,14 +3,27 @@
     <string name="logo" translatable="false">My Notes</string>
 
     <string name="open">Open</string>
+    <string name="edit">Edit</string>
+    <string name="edit_note">Edit note</string>
+    <string name="edited">Text has been edited</string>
+    <string name="copy">Copy text</string>
+    <string name="copied">Text has been copied</string>
+    <string name="delete">Delete</string>
+    <string name="alert_dialog_delete">Are you shure you want to delete?</string>
+    <string name="deleted">Note deleted</string>
     <string name="close">Close</string>
     <string name="skip">Skip</string>
     <string name="back">Back</string>
     <string name="sign_up">Sign-Up</string>
     <string name="log_in">Log-In</string>
     <string name="log_out">Logout</string>
+    <string name="alert_dialog_logout">Are you sure you want to log out?</string>
     <string name="you_have_an_account">You have an account?</string>
     <string name="return_to">Return to </string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
     <!--    Notes-->
     <string name="add_new">Add new</string>

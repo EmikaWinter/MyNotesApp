@@ -10,8 +10,8 @@ object NotesDatabase {
         id++
     }
 
-    fun delete(){
-//        TODO
+    fun delete(note: Note){
+        notes.remove(note)
     }
 
     fun edit(){
