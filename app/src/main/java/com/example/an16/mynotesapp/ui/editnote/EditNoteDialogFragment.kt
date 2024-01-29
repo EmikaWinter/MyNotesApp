@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
@@ -13,9 +12,6 @@ import com.example.an16.mynotesapp.Validator
 import com.example.an16.mynotesapp.databinding.DialogEditNoteBinding
 
 private const val ID_EXTRA = "id"
-private const val TITLE_EXTRA = "title"
-private const val TEXT_EXTRA = "text"
-private const val EDIT_NOTE_EXTRA = "editNote"
 
 class EditNoteDialogFragment : DialogFragment() {
 
@@ -37,34 +33,14 @@ class EditNoteDialogFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.note.observe(viewLifecycleOwner){
+        viewModel.note.observe(viewLifecycleOwner) {
             binding?.titleEditText?.setText(it.title)
             binding?.textEditText?.setText(it.text)
         }
 
-        val id = arguments?.getInt(ID_EXTRA) ?: 0
-        viewModel.getNoteById(id)
-
-        binding?.editButton?.setOnClickListener {
-
-            val title = binding?.titleEditText?.text.toString()
-            val text = binding?.textEditText?.text.toString()
-
-            val bundle = Bundle().apply {
-                putString(TITLE_EXTRA, title)
-                putString(TEXT_EXTRA, text)
-            }
-
-            if (validator.validateText(title) && validator.validateText(text)) {
-                parentFragmentManager.setFragmentResult(EDIT_NOTE_EXTRA, bundle)
-                dismiss()
-            } else {
-                Toast.makeText(requireContext(), R.string.empty_note, Toast.LENGTH_LONG).show()
-            }
-        }
+        viewModel.getNoteById(arguments?.getInt(ID_EXTRA) ?: 0)
 
         binding?.titleEditText?.run {
-            setText(arguments?.getString(TITLE_EXTRA))
             doAfterTextChanged {
                 error = if (it.toString().isBlank()) {
                     getString(R.string.name_empty_field)
@@ -75,7 +51,6 @@ class EditNoteDialogFragment : DialogFragment() {
         }
 
         binding?.textEditText?.run {
-            setText(arguments?.getString(TEXT_EXTRA))
             doAfterTextChanged {
                 error = if (it.toString().isBlank()) {
                     getString(R.string.name_empty_field)
@@ -84,6 +59,21 @@ class EditNoteDialogFragment : DialogFragment() {
                 }
             }
         }
+
+        binding?.editButton?.setOnClickListener {
+
+//            val title = binding?.titleEditText?.text.toString()
+//            val text = binding?.textEditText?.text.toString()
+//
+//            if (validator.validateText(title) && validator.validateText(text)) {
+                viewModel.editNote(binding?.titleEditText?.text.toString(),
+                    binding?.textEditText?.text.toString())
+                dismiss()
+//            } else {
+//                Toast.makeText(requireContext(), R.string.empty_note, Toast.LENGTH_LONG).show()
+//            }
+        }
+
     }
 
     override fun onStart() {

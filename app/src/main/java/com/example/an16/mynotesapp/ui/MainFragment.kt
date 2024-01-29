@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.databinding.FragmentMainBinding
-import com.example.an16.mynotesapp.ui.allnotes.AllNotesFragment
+import com.example.an16.mynotesapp.ui.allnotes.HomeFragment
 
 class MainFragment : Fragment() {
 
@@ -26,14 +26,14 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         childFragmentManager.beginTransaction()
-            .replace(R.id.child_container, AllNotesFragment())
+            .replace(R.id.child_container, HomeFragment())
             .commit()
 
         binding?.bottomNavigationMenu?.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home -> {
                     childFragmentManager.beginTransaction()
-                        .replace(R.id.child_container, AllNotesFragment())
+                        .replace(R.id.child_container, HomeFragment())
                         .commit()
                     true
                 }

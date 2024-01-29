@@ -8,42 +8,32 @@ import java.util.Date
 class NoteRepository {
 
     fun getNoteList(): ArrayList<Note> {
-        return (DataBase.noteDao?.getAllNotes()?.map {note->
-            Note(
-                note.id, note.title, note.text, note.date
-            )
+        return (DataBase.noteDao?.getAllNotes()?.map { note ->
+            Note(note.id, note.title, note.text, note.date)
         } as? ArrayList<Note>) ?: arrayListOf()
     }
 
     fun getNoteById(id: Int): Note? {
-        DataBase.noteDao?.getNoteId(id)?.let {note->
+        DataBase.noteDao?.getNoteId(id)?.let { note ->
             return Note(note.id, note.title, note.text, note.date)
-        }?: run{
+        } ?: run {
             return null
         }
     }
 
-    fun addNote(title: String, text: String){
-        DataBase.noteDao?.addNote(NoteEntity(0,title, text, Date()))
+    fun addNote(title: String, text: String) {
+        DataBase.noteDao?.addNote(NoteEntity(0, title, text, Date()))
     }
 
-    fun deleteNote(note: Note){
+    fun deleteNote(note: Note) {
         DataBase.noteDao?.deleteNote(NoteEntity(note.id, note.title, note.text, note.date))
     }
 
-    fun updateNote(note: Note){
-        DataBase.noteDao?.update(NoteEntity(note.id, note.title, note.text, note.date))
+    fun deleteNote(id: Int) {
+        DataBase.noteDao?.deleteNote(NoteEntity(id, "", "", Date()))
     }
 
-//    fun update(note: Note){
-//        val oldNote = NotesDatabase.notes.filter {
-//            it.id == note.id
-//        }.getOrNull(0)
-//
-//        val position = NotesDatabase.notes.indexOf(oldNote)
-//
-//        NotesDatabase.notes.add(position,note)
-//
-//        NotesDatabase.notes.remove(oldNote)
-//    }
+    fun updateNote(note: Note) {
+        DataBase.noteDao?.update(NoteEntity(note.id, note.title, note.text, note.date))
+    }
 }

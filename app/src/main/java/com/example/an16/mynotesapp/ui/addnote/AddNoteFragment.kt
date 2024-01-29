@@ -38,8 +38,7 @@ class AddNoteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        viewModel.note.observe(viewLifecycleOwner){note->
-//
+//        viewModel.note.observe(viewLifecycleOwner){note ->
 //
 //        }
         val titleEdit = binding?.titleEditText
@@ -64,14 +63,13 @@ class AddNoteFragment : Fragment() {
             if (validator.validateText(titleText) && validator.validateText(messageText)) {
 
                 viewModel.addNote(titleText, messageText)
-//                onAddedNote?.invoke()
+                onAddedNote?.invoke()
 
                 Toast.makeText(requireContext(), R.string.saved, Toast.LENGTH_LONG).show()
 
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.container, MainFragment())
                     .commit()
-
             } else {
                 Toast.makeText(requireContext(), R.string.empty_note, Toast.LENGTH_LONG).show()
             }
