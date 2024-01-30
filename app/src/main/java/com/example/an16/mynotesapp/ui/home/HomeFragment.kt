@@ -1,4 +1,4 @@
-package com.example.an16.mynotesapp.ui.allnotes
+package com.example.an16.mynotesapp.ui.home
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -22,7 +22,7 @@ import com.example.an16.mynotesapp.model.Note
 import com.example.an16.mynotesapp.repository.SharedPreferencesRepository
 import com.example.an16.mynotesapp.ui.LoginFragment
 import com.example.an16.mynotesapp.ui.addnote.AddNoteFragment
-import com.example.an16.mynotesapp.ui.allnotes.adapter.HomeListAdapter
+import com.example.an16.mynotesapp.ui.home.adapter.HomeListAdapter
 import com.example.an16.mynotesapp.ui.editnote.EditNoteDialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -106,6 +106,9 @@ class HomeFragment : Fragment() {
                             R.id.edit_option -> {
                                 EditNoteDialogFragment().apply {
                                     arguments = bundleOf(ID_EXTRA to itemId)
+                                    onChangedItem = {
+                                        viewModel.loadListNote()
+                                    }
                                 }.show(parentFragmentManager, null)
                                 true
                             }

@@ -1,4 +1,4 @@
-package com.example.an16.mynotesapp.ui.allnotes
+package com.example.an16.mynotesapp.ui.home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

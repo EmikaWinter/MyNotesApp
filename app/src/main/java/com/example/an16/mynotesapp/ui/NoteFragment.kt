@@ -34,13 +34,4 @@ class NoteFragment : Fragment() {
         }
         viewModel.getItemById(arguments?.getInt(ID_EXTRA, 0) ?: 0)
     }
-
-    companion object {
-
-        fun getNoteFragment(id: Int): NoteFragment {
-            return NoteFragment().apply {
-                arguments = bundleOf(ID_EXTRA to id)
-            }
-        }
-    }
 }

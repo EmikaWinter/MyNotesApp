@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
@@ -14,6 +15,8 @@ import com.example.an16.mynotesapp.databinding.DialogEditNoteBinding
 private const val ID_EXTRA = "id"
 
 class EditNoteDialogFragment : DialogFragment() {
+
+    var onChangedItem: (() -> Unit)? = null
 
     private var binding: DialogEditNoteBinding? = null
 
@@ -62,18 +65,17 @@ class EditNoteDialogFragment : DialogFragment() {
 
         binding?.editButton?.setOnClickListener {
 
-//            val title = binding?.titleEditText?.text.toString()
-//            val text = binding?.textEditText?.text.toString()
-//
-//            if (validator.validateText(title) && validator.validateText(text)) {
-                viewModel.editNote(binding?.titleEditText?.text.toString(),
-                    binding?.textEditText?.text.toString())
-                dismiss()
-//            } else {
-//                Toast.makeText(requireContext(), R.string.empty_note, Toast.LENGTH_LONG).show()
-//            }
-        }
+            val title = binding?.titleEditText?.text.toString()
+            val text = binding?.textEditText?.text.toString()
 
+            if (validator.validateText(title) && validator.validateText(text)) {
+                viewModel.editNote(title, text)
+                onChangedItem?.invoke()
+                dismiss()
+            } else {
+                Toast.makeText(requireContext(), R.string.empty_note, Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     override fun onStart() {

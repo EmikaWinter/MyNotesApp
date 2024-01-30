@@ -35,9 +35,4 @@ class FirstPageFragment : Fragment() {
                 .commit()
         }
     }
-
-    companion object {
-
-        const val TAG = "FirstPageFragment"
-    }
 }

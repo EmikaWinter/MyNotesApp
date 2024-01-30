@@ -11,7 +11,7 @@ class EditNoteViewModel : ViewModel() {
     private val repository = NoteRepository()
 
     fun getNoteById(id: Int) {
-        repository.getNoteById(id)
+        note.value = repository.getNoteById(id)
     }
 
     fun editNote(title: String, text: String) {
