@@ -27,6 +27,7 @@
             android:importantForAutofill="no"
             android:inputType="text"
             android:paddingStart="@dimen/margin_16dp"
+            android:paddingEnd="@dimen/margin_16dp"
             android:paddingTop="@dimen/margin_16dp" />
 
         <EditText
@@ -42,6 +43,7 @@
             android:importantForAutofill="no"
             android:inputType="textMultiLine"
             android:paddingStart="@dimen/margin_16dp"
+            android:paddingEnd="@dimen/margin_16dp"
             android:paddingTop="@dimen/margin_16dp" />
 
         <Button

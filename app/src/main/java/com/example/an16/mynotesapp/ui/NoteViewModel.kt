@@ -16,9 +16,4 @@ class NoteViewModel : ViewModel() {
             note.value = it
         }
     }
-
-    fun deleteItem() {
-        note.value?.let { repository.deleteNote(it) }
-//        closeFragment?.invoke()
-    }
 }
