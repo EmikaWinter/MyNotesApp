@@ -1,11 +1,15 @@
-package com.example.an16.mynotesapp
+package com.example.an16.mynotesapp.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.an16.mynotesapp.R
+import com.example.an16.mynotesapp.Status
+import com.example.an16.mynotesapp.Validator
 import com.example.an16.mynotesapp.databinding.FragmentLoginBinding
+import com.example.an16.mynotesapp.repository.SharedPreferencesRepository
 
 class LoginFragment : Fragment() {
 
@@ -29,35 +33,31 @@ class LoginFragment : Fragment() {
                 .commit()
         }
 
-        val loginInput = binding?.loginEmailInputEdit
-        val loginInputLayout = binding?.loginEmailInput
-
-        val passwordInput = binding?.loginPasswordInputEdit
-        val passwordInputLayout = binding?.loginPasswordInput
-
-        val loginButton = binding?.loginButton
-
         val validator = Validator()
 
-        loginButton?.setOnClickListener {
-            val emailStatus = validator.validateEmail(loginInput?.text.toString())
-            val passwordStatus = validator.validatePassword(passwordInput?.text.toString())
+        binding?.loginButton?.setOnClickListener {
 
-            loginInputLayout?.error = when (emailStatus) {
+            val email = binding?.loginEmailInputEdit?.text.toString()
+            SharedPreferencesRepository.setUserEmail(email)
+
+            val emailStatus = validator.validateEmail(email)
+            val passwordStatus = validator.validatePassword(binding?.loginPasswordInputEdit?.text.toString())
+
+            binding?.loginEmailInput?.error = when (emailStatus) {
                 Status.EMPTY_FIELD -> getString(R.string.email_cant_be_empty)
                 Status.INCORRECT_FORMAT -> getString(R.string.email_incorrect)
                 else -> ""
             }
 
-            passwordInputLayout?.error = when (passwordStatus) {
+            binding?.loginPasswordInput?.error = when (passwordStatus) {
                 Status.EMPTY_FIELD -> getString(R.string.password_cant_be_empty)
                 Status.INCORRECT_FORMAT -> getString(R.string.password_incorrect)
                 else -> ""
             }
 
-            if (loginInputLayout?.error.isNullOrEmpty() && passwordInputLayout?.error.isNullOrEmpty()) {
+            if (binding?.loginEmailInput?.error.isNullOrEmpty() && binding?.loginPasswordInput?.error.isNullOrEmpty()) {
                 parentFragmentManager.beginTransaction()
-                    .replace(R.id.container, AllNotesFragment())
+                    .replace(R.id.container, MainFragment())
                     .commit()
             }
         }

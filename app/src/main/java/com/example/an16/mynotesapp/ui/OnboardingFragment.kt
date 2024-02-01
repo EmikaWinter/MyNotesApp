@@ -1,4 +1,4 @@
-package com.example.an16.mynotesapp
+package com.example.an16.mynotesapp.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.databinding.FragmentOnboardingBinding
-import com.example.an16.mynotesapp.viewPager.ViewPagerAdapter
+import com.example.an16.mynotesapp.adapter.viewPager.ViewPagerAdapter
 
 class OnboardingFragment : Fragment() {
 

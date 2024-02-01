@@ -1,4 +1,4 @@
-package com.example.an16.mynotesapp.viewPager
+package com.example.an16.mynotesapp.adapter.viewPager
 
 import android.view.LayoutInflater
 import android.view.View

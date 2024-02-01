@@ -3,16 +3,18 @@
 
     <item
         android:id="@+id/edit_option"
-        android:title="@string/edit"
-        android:icon="@drawable/ic_edit"/>
+        android:icon="@drawable/ic_edit"
+        android:title="@string/edit" />
+
 
     <item
         android:id="@+id/copy_option"
-        android:title="@string/copy"
-        android:icon="@drawable/ic_copy"/>
+        android:icon="@drawable/ic_copy"
+        android:title="@string/copy" />
+
 
     <item
         android:id="@+id/delete_option"
-        android:title="@string/delete"
-        android:icon="@drawable/ic_delete_forever"/>
+        android:icon="@drawable/ic_delete_forever"
+        android:title="@string/delete" />
 </menu>

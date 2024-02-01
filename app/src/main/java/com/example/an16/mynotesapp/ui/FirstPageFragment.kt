@@ -1,10 +1,11 @@
-package com.example.an16.mynotesapp
+package com.example.an16.mynotesapp.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.databinding.FragmentFirstPageBinding
 
 class FirstPageFragment : Fragment() {
@@ -33,10 +34,5 @@ class FirstPageFragment : Fragment() {
                 .replace(R.id.container, LoginFragment())
                 .commit()
         }
-    }
-
-    companion object {
-
-        const val TAG = "FirstPageFragment"
     }
 }

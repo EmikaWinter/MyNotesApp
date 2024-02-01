@@ -42,4 +42,5 @@
     <style name="TextButtonStyle">
         <item name="android:fontFamily">@font/font_regular</item>
     </style>
+
 </resources>

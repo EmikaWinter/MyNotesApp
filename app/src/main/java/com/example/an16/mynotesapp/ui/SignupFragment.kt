@@ -1,10 +1,13 @@
-package com.example.an16.mynotesapp
+package com.example.an16.mynotesapp.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.an16.mynotesapp.R
+import com.example.an16.mynotesapp.Status
+import com.example.an16.mynotesapp.Validator
 import com.example.an16.mynotesapp.databinding.FragmentSignupBinding
 
 class SignupFragment : Fragment() {
@@ -81,7 +84,7 @@ class SignupFragment : Fragment() {
                 passwordInputLayout?.error.isNullOrEmpty()
             ) {
                 parentFragmentManager.beginTransaction()
-                    .replace(R.id.container, AllNotesFragment())
+                    .replace(R.id.container, MainFragment())
                     .commit()
             }
         }
