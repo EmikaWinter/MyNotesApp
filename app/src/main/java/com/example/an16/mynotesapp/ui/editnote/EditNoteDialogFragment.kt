@@ -9,11 +9,13 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import com.example.an16.mynotesapp.R
-import com.example.an16.mynotesapp.Validator
+import com.example.an16.mynotesapp.util.Validator
 import com.example.an16.mynotesapp.databinding.DialogEditNoteBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 private const val ID_EXTRA = "id"
 
+@AndroidEntryPoint
 class EditNoteDialogFragment : DialogFragment() {
 
     var onChangedItem: (() -> Unit)? = null

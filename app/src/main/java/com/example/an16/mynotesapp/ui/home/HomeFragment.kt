@@ -25,10 +25,16 @@ import com.example.an16.mynotesapp.ui.addnote.AddNoteFragment
 import com.example.an16.mynotesapp.ui.home.adapter.HomeListAdapter
 import com.example.an16.mynotesapp.ui.editnote.EditNoteDialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 private const val ID_EXTRA = "id"
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
+
+    @Inject
+    lateinit var sharedPreferencesRepository: SharedPreferencesRepository
 
     private val viewModel: HomeViewModel by viewModels()
 
@@ -62,7 +68,7 @@ class HomeFragment : Fragment() {
                 .setIcon(R.drawable.ic_logout)
                 .setPositiveButton(R.string.yes) { dialog, _ ->
 
-                    SharedPreferencesRepository.logout()
+                    sharedPreferencesRepository.logout()
 
                     requireActivity().supportFragmentManager.beginTransaction()
                         .replace(R.id.container, LoginFragment())

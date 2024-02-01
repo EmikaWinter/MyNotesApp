@@ -23,6 +23,11 @@
     <string name="yes">Да</string>
     <string name="no">Нет</string>
 
+    <!--    Menu-->
+    <string name="home">Главная</string>
+    <string name="search">Поиск</string>
+    <string name="profile">Профиль</string>
+
 <!--    Notes-->
     <string name="add_new">Добавить запись</string>
     <string name="add">Сохранить</string>
