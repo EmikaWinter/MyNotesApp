@@ -34,9 +34,6 @@ class AddNoteFragment : Fragment() {
 
         val titleEdit = binding?.titleEditText
         val textEdit = binding?.textEditText
-//        val currentDate: Date = Date()
-//        val formatDate: String =
-//            SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(currentDate)
 
         val validator = Validator()
 

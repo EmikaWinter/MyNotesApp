@@ -4,6 +4,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.an16.mynotesapp.databinding.NoteItemBinding
 import com.example.an16.mynotesapp.model.Note
+import com.example.an16.mynotesapp.util.getSimpleDate
 import java.util.Date
 
 class HomeListViewHolder(private val binding: NoteItemBinding) :
@@ -15,7 +16,8 @@ class HomeListViewHolder(private val binding: NoteItemBinding) :
     ) {
         binding.noteTitleItem.text = note.title
         binding.noteTextItem.text = note.text
-        note.date = Date()
+        binding.noteDateItem.text = note.date.getSimpleDate()
+
         binding.menu.setOnClickListener {
             onClick(note.id, binding.menu)
         }
