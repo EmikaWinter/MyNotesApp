@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.databinding.FragmentMainBinding
-import com.example.an16.mynotesapp.ui.allnotes.HomeFragment
+import com.example.an16.mynotesapp.ui.home.HomeFragment
 
 class MainFragment : Fragment() {
 

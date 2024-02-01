@@ -1,4 +1,4 @@
-package com.example.an16.mynotesapp.ui.allnotes.adapter
+package com.example.an16.mynotesapp.ui.home.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
