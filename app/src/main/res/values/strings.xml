@@ -28,6 +28,8 @@
     <!--    Menu-->
     <string name="home">Home</string>
     <string name="search">Search</string>
+    <string name="search_input">Find</string>
+    <string name="nothing_found">Nothing found</string>
     <string name="profile">Profile</string>
 
     <!--    Notes-->

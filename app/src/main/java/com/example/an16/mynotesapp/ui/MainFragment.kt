@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.databinding.FragmentMainBinding
 import com.example.an16.mynotesapp.ui.home.HomeFragment
+import com.example.an16.mynotesapp.ui.search.SearchFragment
 
 class MainFragment : Fragment() {
 

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.databinding.FragmentFirstPageBinding
+import com.example.an16.mynotesapp.ui.login.LoginFragment
 import com.example.an16.mynotesapp.ui.onboarding.OnboardingFragment
 
 class FirstPageFragment : Fragment() {

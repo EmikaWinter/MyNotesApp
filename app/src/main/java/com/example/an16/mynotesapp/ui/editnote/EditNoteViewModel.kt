@@ -2,9 +2,12 @@ package com.example.an16.mynotesapp.ui.editnote
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.an16.mynotesapp.model.Note
 import com.example.an16.mynotesapp.repository.NoteRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -15,12 +18,16 @@ class EditNoteViewModel @Inject constructor(
     val note = MutableLiveData<Note>()
 
     fun getNoteById(id: Int) {
-        note.value = repository.getNoteById(id)
+        viewModelScope.launch(Dispatchers.IO) {
+            note.postValue(repository.getNoteById(id))
+        }
     }
 
     fun editNote(title: String, text: String) {
-        note.value?.copy(title = title, text = text)?.let {
-            repository.updateNote(it)
+        viewModelScope.launch(Dispatchers.IO) {
+            note.value?.copy(title = title, text = text)?.let {
+                repository.updateNote(it)
+            }
         }
     }
 }
