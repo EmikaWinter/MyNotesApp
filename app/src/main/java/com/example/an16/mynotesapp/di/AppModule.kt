@@ -19,14 +19,12 @@ class AppModule {
     @Provides
     fun provideDB(@ApplicationContext context: Context): AppDataBase {
         return Room.databaseBuilder(context, AppDataBase::class.java, "dataBase")
-            .allowMainThreadQueries()
             .build()
     }
 
     @Singleton
     @Provides
     fun provideNoteDao(appDataBase: AppDataBase): NoteDao {
-
         return appDataBase.getNoteDao()
     }
 }

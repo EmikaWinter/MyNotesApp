@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.an16.mynotesapp.databinding.NoteItemBinding
 import com.example.an16.mynotesapp.model.Note
 import com.example.an16.mynotesapp.util.getSimpleDate
-import java.util.Date
 
 class HomeListViewHolder(private val binding: NoteItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
