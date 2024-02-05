@@ -10,23 +10,17 @@ import androidx.room.Update
 interface NoteDao {
 
     @Insert
-    suspend fun addNote(note: NoteEntity)
+    fun addNote(note: NoteEntity)
 
     @Delete
-    suspend fun deleteNote(note: NoteEntity)
+    fun deleteNote(note: NoteEntity)
 
     @Update
-    suspend fun update(note: NoteEntity)
+    fun update(note: NoteEntity)
 
     @Query("SELECT * FROM NoteEntity")
-    suspend fun getAllNotes(): List<NoteEntity>
+    fun getAllNotes(): List<NoteEntity>
 
     @Query("SELECT * FROM NoteEntity WHERE id == :id LIMIT 1")
-    suspend fun getNoteId(id: Int): NoteEntity?
-
-    @Query("SELECT * FROM NoteEntity WHERE title LIKE '%' || :key || '%' OR text LIKE '%' || :key || '%'")
-    fun getNotesByKeyword(key: String): List<NoteEntity>
-
-    @Query("SELECT * FROM NoteEntity WHERE userId == :userId")
-    suspend fun getNotesByUserId(userId: Int): List<NoteEntity>
+    fun getNoteId(id: Int):NoteEntity?
 }

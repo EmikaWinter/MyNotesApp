@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_bubbles_login"
-    tools:context=".ui.login.LoginFragment">
+    tools:context=".ui.LoginFragment">
 
     <ImageView
         android:id="@+id/login_background_shape"

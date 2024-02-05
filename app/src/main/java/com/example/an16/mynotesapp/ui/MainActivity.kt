@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.repository.SharedPreferencesRepository
-import com.example.an16.mynotesapp.ui.login.LoginFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
