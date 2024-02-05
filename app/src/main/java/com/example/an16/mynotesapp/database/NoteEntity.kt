@@ -14,5 +14,7 @@ data class NoteEntity(
     @ColumnInfo("text")
     var text: String,
     @ColumnInfo("date")
-    var date: Date
+    var date: Date,
+    @ColumnInfo("userId")
+    var userId: Int
 )

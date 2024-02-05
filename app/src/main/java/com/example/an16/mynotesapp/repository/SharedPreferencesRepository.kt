@@ -11,6 +11,7 @@ private const val SHARED_PREF = "sharedPref"
 private const val USER_PREF = "userPref"
 private const val IS_FIRST_LAUNCH = "is_first_launch"
 private const val USER_EMAIL = "user_email"
+private const val USER_ID = "user_id"
 
 @Singleton
 class SharedPreferencesRepository @Inject constructor(@ApplicationContext context: Context) {
@@ -41,6 +42,16 @@ class SharedPreferencesRepository @Inject constructor(@ApplicationContext contex
 
     fun getUserEmail(): String? {
         return userPreferences.getString(USER_EMAIL, null)
+    }
+
+    fun setUserId(id: Int) {
+        userPreferences.edit {
+            putInt(USER_ID, id)
+        }
+    }
+
+    fun getUserId(): Int {
+        return userPreferences.getInt(USER_ID, 0)
     }
 
     fun logout() {

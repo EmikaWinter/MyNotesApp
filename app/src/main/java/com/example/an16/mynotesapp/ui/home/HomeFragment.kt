@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,12 +21,13 @@ import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.databinding.FragmentHomeBinding
 import com.example.an16.mynotesapp.model.Note
 import com.example.an16.mynotesapp.repository.SharedPreferencesRepository
-import com.example.an16.mynotesapp.ui.LoginFragment
+import com.example.an16.mynotesapp.ui.login.LoginFragment
 import com.example.an16.mynotesapp.ui.addnote.AddNoteFragment
 import com.example.an16.mynotesapp.ui.home.adapter.HomeListAdapter
 import com.example.an16.mynotesapp.ui.editnote.EditNoteDialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 private const val ID_EXTRA = "id"
@@ -122,10 +124,14 @@ class HomeFragment : Fragment() {
                             R.id.copy_option -> {
                                 val clipboardManager =
                                     requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                                val note: Note? = viewModel.getNoteById(itemId)
-                                val clipData = ClipData.newPlainText("text", note?.text)
-                                clipboardManager.setPrimaryClip(clipData)
-                                Toast.makeText(context, R.string.copied, Toast.LENGTH_SHORT).show()
+
+                                lifecycleScope.launch {
+                                    val note: Note? = viewModel.getNoteById(itemId)
+                                    val clipData = ClipData.newPlainText("text", note?.text)
+                                    clipboardManager.setPrimaryClip(clipData)
+                                    Toast.makeText(context, R.string.copied, Toast.LENGTH_SHORT).show()
+                                }
+
                                 true
                             }
 

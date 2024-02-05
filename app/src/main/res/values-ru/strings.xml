@@ -26,6 +26,8 @@
     <!--    Menu-->
     <string name="home">Главная</string>
     <string name="search">Поиск</string>
+    <string name="search_input">Найти</string>
+    <string name="nothing_found">Ничего не найдено</string>
     <string name="profile">Профиль</string>
 
 <!--    Notes-->

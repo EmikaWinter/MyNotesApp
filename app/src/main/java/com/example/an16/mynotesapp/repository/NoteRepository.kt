@@ -7,16 +7,17 @@ import java.util.Date
 import javax.inject.Inject
 
 class NoteRepository @Inject constructor(
-    private val noteDao: NoteDao
-){
+    private val noteDao: NoteDao,
+    private val sharedPreferencesRepository: SharedPreferencesRepository
+) {
 
-    fun getNoteList(): ArrayList<Note> {
-        return (noteDao.getAllNotes().map { note ->
+    suspend fun getNoteList(): ArrayList<Note> {
+        return (noteDao.getNotesByUserId(sharedPreferencesRepository.getUserId()).map { note ->
             Note(note.id, note.title, note.text, note.date)
         } as? ArrayList<Note>) ?: arrayListOf()
     }
 
-    fun getNoteById(id: Int): Note? {
+    suspend fun getNoteById(id: Int): Note? {
         noteDao.getNoteId(id)?.let { note ->
             return Note(note.id, note.title, note.text, note.date)
         } ?: run {
@@ -24,19 +25,29 @@ class NoteRepository @Inject constructor(
         }
     }
 
-    fun addNote(title: String, text: String) {
-        noteDao.addNote(NoteEntity(0, title, text, Date()))
+    suspend fun getNotesByKeyword(key: String): ArrayList<Note> {
+        return (noteDao.getNotesByKeyword(key).map { note ->
+            Note(note.id, note.title, note.text, note.date)
+        } as? ArrayList<Note>) ?: arrayListOf()
     }
 
-    fun deleteNote(note: Note) {
-        noteDao.deleteNote(NoteEntity(note.id, note.title, note.text, note.date))
+    suspend fun addNote(title: String, text: String) {
+        noteDao.addNote(NoteEntity(0, title, text, Date(), sharedPreferencesRepository.getUserId()))
     }
 
-    fun deleteNote(id: Int) {
-        noteDao.deleteNote(NoteEntity(id, "", "", Date()))
+    suspend fun deleteNote(id: Int) {
+        noteDao.deleteNote(NoteEntity(id, "", "", Date(), sharedPreferencesRepository.getUserId()))
     }
 
-    fun updateNote(note: Note) {
-        noteDao.update(NoteEntity(note.id, note.title, note.text, note.date))
+    suspend fun updateNote(note: Note) {
+        noteDao.update(
+            NoteEntity(
+                note.id,
+                note.title,
+                note.text,
+                note.date,
+                sharedPreferencesRepository.getUserId()
+            )
+        )
     }
 }

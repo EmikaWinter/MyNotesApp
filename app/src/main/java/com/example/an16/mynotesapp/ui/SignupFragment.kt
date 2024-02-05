@@ -9,6 +9,7 @@ import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.util.Status
 import com.example.an16.mynotesapp.util.Validator
 import com.example.an16.mynotesapp.databinding.FragmentSignupBinding
+import com.example.an16.mynotesapp.ui.login.LoginFragment
 
 class SignupFragment : Fragment() {
 
