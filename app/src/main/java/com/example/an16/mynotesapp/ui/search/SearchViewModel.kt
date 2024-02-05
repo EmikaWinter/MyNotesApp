@@ -12,16 +12,10 @@ class SearchViewModel @Inject constructor(private val repository: NoteRepository
 
     val listResult = MutableLiveData<ArrayList<Note>>()
 
-    fun getListNote(): ArrayList<Note> {
-        return repository.getNoteList()
+    fun loadListResult(key: String) {
+
+       listResult.value = repository.searchNoteByKeyword(key)
     }
 
-    fun loadListResult(key: String) {
-        val list = repository.getNoteList()
-       listResult.value = (list.filter { note ->
-            note.title.contains(key, true)
-            note.text.contains(key, true)
-        } as ArrayList<Note>)
-    }
 
 }

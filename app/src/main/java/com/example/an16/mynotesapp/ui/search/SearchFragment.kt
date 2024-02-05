@@ -33,13 +33,12 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        viewModel.listResult.observe(viewLifecycleOwner) { listResult ->
+            setListNote(listResult)
+        }
         binding?.searchButton?.setOnClickListener {
+            viewModel.loadListResult(binding?.searchInput?.text.toString())
 
-            viewModel.listResult.observe(viewLifecycleOwner) { listResult ->
-                viewModel.loadListResult(binding?.searchInput?.text.toString())
-                setListNote(listResult)
-            }
         }
     }
 
