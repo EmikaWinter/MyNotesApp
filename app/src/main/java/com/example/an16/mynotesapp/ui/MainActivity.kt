@@ -5,19 +5,25 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.repository.SharedPreferencesRepository
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var sharedPreferencesRepository: SharedPreferencesRepository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         when {
-            SharedPreferencesRepository.isFirstLaunch() -> {
+            sharedPreferencesRepository.isFirstLaunch() -> {
                 openFragment(FirstPageFragment())
-                SharedPreferencesRepository.setIsFirstLaunch()
+                sharedPreferencesRepository.setIsFirstLaunch()
             }
 
-            SharedPreferencesRepository.getUserEmail() == null -> {
+            sharedPreferencesRepository.getUserEmail() == null -> {
                 openFragment(LoginFragment())
             }
 

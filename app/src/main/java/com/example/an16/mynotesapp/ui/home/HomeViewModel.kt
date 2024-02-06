@@ -4,13 +4,17 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.an16.mynotesapp.model.Note
 import com.example.an16.mynotesapp.repository.NoteRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class HomeViewModel : ViewModel() {
+@HiltViewModel
+class HomeViewModel @Inject constructor(
+    private val repository: NoteRepository
+) : ViewModel() {
 
     val listNote = MutableLiveData<ArrayList<Note>>()
     val note = MutableLiveData<Note>()
 
-    private val repository = NoteRepository()
 
     fun loadListNote() {
         listNote.value = repository.getNoteList()

@@ -6,12 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.an16.mynotesapp.R
-import com.example.an16.mynotesapp.Status
-import com.example.an16.mynotesapp.Validator
+import com.example.an16.mynotesapp.util.Status
+import com.example.an16.mynotesapp.util.Validator
 import com.example.an16.mynotesapp.databinding.FragmentLoginBinding
 import com.example.an16.mynotesapp.repository.SharedPreferencesRepository
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
+
+    @Inject
+    lateinit var sharedPreferencesRepository: SharedPreferencesRepository
 
     private var binding: FragmentLoginBinding? = null
 
@@ -38,7 +44,7 @@ class LoginFragment : Fragment() {
         binding?.loginButton?.setOnClickListener {
 
             val email = binding?.loginEmailInputEdit?.text.toString()
-            SharedPreferencesRepository.setUserEmail(email)
+            sharedPreferencesRepository.setUserEmail(email)
 
             val emailStatus = validator.validateEmail(email)
             val passwordStatus = validator.validatePassword(binding?.loginPasswordInputEdit?.text.toString())
