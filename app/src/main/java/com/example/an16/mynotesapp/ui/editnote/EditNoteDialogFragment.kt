@@ -78,7 +78,6 @@ class EditNoteDialogFragment : DialogFragment() {
                 Toast.makeText(requireContext(), R.string.empty_note, Toast.LENGTH_LONG).show()
             }
         }
-
     }
 
     override fun onStart() {

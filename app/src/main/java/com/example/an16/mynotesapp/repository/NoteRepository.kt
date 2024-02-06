@@ -10,13 +10,13 @@ class NoteRepository @Inject constructor(
     private val noteDao: NoteDao
 ) {
 
-    fun getNoteList(): ArrayList<Note> {
+    suspend fun getNoteList(): ArrayList<Note> {
         return (noteDao.getAllNotes().map { note ->
             Note(note.id, note.title, note.text, note.date)
         } as? ArrayList<Note>) ?: arrayListOf()
     }
 
-    fun getNoteById(id: Int): Note? {
+    suspend fun getNoteById(id: Int): Note? {
         noteDao.getNoteId(id)?.let { note ->
             return Note(note.id, note.title, note.text, note.date)
         } ?: run {
@@ -24,25 +24,22 @@ class NoteRepository @Inject constructor(
         }
     }
 
-    fun searchNoteByKeyword(key: String): ArrayList<Note> {
+    suspend fun searchNoteByKeyword(key: String): ArrayList<Note> {
         return (noteDao.searchNoteByKeyword(key).map { note ->
             Note(note.id, note.title, note.text, note.date)
         } as? ArrayList<Note>) ?: arrayListOf()
     }
 
-    fun addNote(title: String, text: String) {
+    suspend fun addNote(title: String, text: String) {
         noteDao.addNote(NoteEntity(0, title, text, Date()))
     }
 
-    fun deleteNote(note: Note) {
-        noteDao.deleteNote(NoteEntity(note.id, note.title, note.text, note.date))
-    }
 
-    fun deleteNote(id: Int) {
+    suspend fun deleteNote(id: Int) {
         noteDao.deleteNote(NoteEntity(id, "", "", Date()))
     }
 
-    fun updateNote(note: Note) {
+    suspend fun updateNote(note: Note) {
         noteDao.update(NoteEntity(note.id, note.title, note.text, note.date))
     }
 }
