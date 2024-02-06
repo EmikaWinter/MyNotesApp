@@ -17,6 +17,8 @@ class EditNoteViewModel @Inject constructor(
 
     val note = MutableLiveData<Note>()
 
+    var onChangedItem: (() -> Unit)? = null
+
     fun getNoteById(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             note.postValue(repository.getNoteById(id))
@@ -28,6 +30,7 @@ class EditNoteViewModel @Inject constructor(
             note.value?.copy(title = title, text = text)?.let {
                 repository.updateNote(it)
             }
+            onChangedItem?.invoke()
         }
     }
 }

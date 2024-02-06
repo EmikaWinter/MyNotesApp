@@ -70,10 +70,13 @@ class EditNoteDialogFragment : DialogFragment() {
             val title = binding?.titleEditText?.text.toString()
             val text = binding?.textEditText?.text.toString()
 
-            if (validator.validateText(title) && validator.validateText(text)) {
-                viewModel.editNote(title, text)
+            viewModel.onChangedItem = {
                 onChangedItem?.invoke()
                 dismiss()
+            }
+
+            if (validator.validateText(title) && validator.validateText(text)) {
+                viewModel.editNote(title, text)
             } else {
                 Toast.makeText(requireContext(), R.string.empty_note, Toast.LENGTH_LONG).show()
             }

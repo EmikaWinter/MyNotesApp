@@ -22,8 +22,8 @@ interface NoteDao {
     suspend fun getAllNotes(): List<NoteEntity>
 
     @Query("SELECT * FROM NoteEntity WHERE id == :id LIMIT 1")
-    fun getNoteId(id: Int):NoteEntity?
+    suspend fun getNoteId(id: Int): NoteEntity?
 
-    @Query("SELECT * FROM NoteEntity WHERE title LIKE '%' || :key || '%' OR text LIKE '%' || :key || '%'")
-    fun searchNoteByKeyword(key: String): List<NoteEntity>
+    @Query("SELECT * FROM NoteEntity WHERE title LIKE '%' || :key || '%' OR text LIKE '%' || :key || '%' OR date LIKE '%' || :key || '%'")
+    suspend fun searchNoteByKeyword(key: String): List<NoteEntity>
 }

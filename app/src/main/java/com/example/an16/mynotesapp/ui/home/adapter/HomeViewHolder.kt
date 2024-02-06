@@ -17,8 +17,24 @@ class HomeViewHolder(private val binding: NoteItemBinding) :
         binding.noteTextItem.text = note.text
         binding.noteDateItem.text = note.date.getSimpleDate()
 
+        binding.noteTextItem.setOnClickListener {
+            toggleEllipsize()
+        }
+
         binding.menu.setOnClickListener {
             onClick(note.id, binding.menu)
+        }
+    }
+
+    private fun toggleEllipsize() {
+        with(binding.noteTextItem) {
+            if (maxLines == 2) {
+                maxLines = Integer.MAX_VALUE
+                ellipsize = null
+            } else {
+                maxLines = 2
+                ellipsize = android.text.TextUtils.TruncateAt.END
+            }
         }
     }
 }
