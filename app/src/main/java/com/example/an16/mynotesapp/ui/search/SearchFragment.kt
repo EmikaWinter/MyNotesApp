@@ -14,7 +14,9 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.databinding.FragmentSearchBinding
 import com.example.an16.mynotesapp.model.Note
@@ -48,6 +50,10 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.searchResult?.visibility = View.INVISIBLE
+
+        val dividerItemDecoration = DividerItemDecoration(requireContext(), RecyclerView.VERTICAL)
+        dividerItemDecoration.setDrawable(resources.getDrawable(R.drawable.divider_item_decorator))
+        binding?.searchRecyclerView?.addItemDecoration(dividerItemDecoration)
 
         viewModel.listResult.observe(viewLifecycleOwner) { listResult ->
             setListNote(listResult)

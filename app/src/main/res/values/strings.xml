@@ -28,7 +28,7 @@
     <!--    Menu-->
     <string name="home">Home</string>
     <string name="search">Search</string>
-    <string name="search_input">Find</string>
+    <string name="search_input">Input text</string>
     <string name="no_results">No results</string>
     <string name="profile">Profile</string>
 
