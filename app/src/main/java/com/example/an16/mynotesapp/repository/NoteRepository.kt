@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class NoteRepository @Inject constructor(
     private val noteDao: NoteDao
-){
+) {
 
     fun getNoteList(): ArrayList<Note> {
         return (noteDao.getAllNotes().map { note ->
@@ -22,6 +22,12 @@ class NoteRepository @Inject constructor(
         } ?: run {
             return null
         }
+    }
+
+    fun searchNoteByKeyword(key: String): ArrayList<Note> {
+        return (noteDao.searchNoteByKeyword(key).map { note ->
+            Note(note.id, note.title, note.text, note.date)
+        } as? ArrayList<Note>) ?: arrayListOf()
     }
 
     fun addNote(title: String, text: String) {
