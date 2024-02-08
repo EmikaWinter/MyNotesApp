@@ -18,7 +18,6 @@ class SearchListAdapter(
     override fun areContentsTheSame(oldItem: Note, newItem: Note): Boolean {
         return oldItem == newItem
     }
-
 }) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
         return SearchViewHolder(

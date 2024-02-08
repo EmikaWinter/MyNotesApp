@@ -58,4 +58,8 @@ class MainFragment : Fragment() {
 
         }
     }
+
+    fun selectFirstTab(){
+        binding?.bottomNavigationMenu?.selectedItemId = R.id.home
+    }
 }
