@@ -10,7 +10,7 @@ import com.example.an16.mynotesapp.model.Note
 
 class HomeListAdapter(
     private val onClick: (id: Int, view: View) -> Unit
-) : ListAdapter<Note, HomeListViewHolder>(object : DiffUtil.ItemCallback<Note>() {
+) : ListAdapter<Note, HomeViewHolder>(object : DiffUtil.ItemCallback<Note>() {
     override fun areItemsTheSame(oldItem: Note, newItem: Note): Boolean {
         return oldItem.id == newItem.id
     }
@@ -19,13 +19,13 @@ class HomeListAdapter(
         return oldItem == newItem
     }
 }) {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeListViewHolder {
-        return HomeListViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
+        return HomeViewHolder(
             NoteItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: HomeListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         holder.bind(getItem(position), onClick)
     }
 

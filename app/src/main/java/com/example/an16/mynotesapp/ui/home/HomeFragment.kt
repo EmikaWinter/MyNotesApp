@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,10 +26,18 @@ import com.example.an16.mynotesapp.ui.addnote.AddNoteFragment
 import com.example.an16.mynotesapp.ui.home.adapter.HomeListAdapter
 import com.example.an16.mynotesapp.ui.editnote.EditNoteDialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 private const val ID_EXTRA = "id"
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
+
+    @Inject
+    lateinit var sharedPreferencesRepository: SharedPreferencesRepository
 
     private val viewModel: HomeViewModel by viewModels()
 
@@ -62,7 +71,7 @@ class HomeFragment : Fragment() {
                 .setIcon(R.drawable.ic_logout)
                 .setPositiveButton(R.string.yes) { dialog, _ ->
 
-                    SharedPreferencesRepository.logout()
+                    sharedPreferencesRepository.logout()
 
                     requireActivity().supportFragmentManager.beginTransaction()
                         .replace(R.id.container, LoginFragment())
@@ -116,9 +125,12 @@ class HomeFragment : Fragment() {
                             R.id.copy_option -> {
                                 val clipboardManager =
                                     requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                                val note: Note? = viewModel.getNoteById(itemId)
-                                val clipData = ClipData.newPlainText("text", note?.text)
-                                clipboardManager.setPrimaryClip(clipData)
+
+                                lifecycleScope.launch(Dispatchers.IO) {
+                                    val note: Note? = viewModel.getNoteById(itemId)
+                                    val clipData = ClipData.newPlainText("text", note?.text)
+                                    clipboardManager.setPrimaryClip(clipData)
+                                }
                                 Toast.makeText(context, R.string.copied, Toast.LENGTH_SHORT).show()
                                 true
                             }
