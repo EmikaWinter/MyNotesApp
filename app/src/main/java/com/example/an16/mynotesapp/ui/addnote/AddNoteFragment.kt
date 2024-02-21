@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.an16.mynotesapp.R
-import com.example.an16.mynotesapp.util.Validator
 import com.example.an16.mynotesapp.databinding.FragmentAddNoteBinding
-import com.example.an16.mynotesapp.ui.MainFragment
+import com.example.an16.mynotesapp.util.Validator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,9 +38,7 @@ class AddNoteFragment : Fragment() {
         val validator = Validator()
 
         binding?.backTextView?.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment())
-                .commit()
+            findNavController().navigate(R.id.action_addNoteFragment_to_home)
         }
 
         binding?.addButton?.setOnClickListener {
@@ -54,9 +52,7 @@ class AddNoteFragment : Fragment() {
 
                 Toast.makeText(requireContext(), R.string.saved, Toast.LENGTH_LONG).show()
 
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment())
-                    .commit()
+                findNavController().navigate(R.id.action_addNoteFragment_to_home)
             } else {
                 Toast.makeText(requireContext(), R.string.empty_note, Toast.LENGTH_LONG).show()
             }

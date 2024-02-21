@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.databinding.FragmentOnboardingBinding
 import com.example.an16.mynotesapp.ui.onboarding.adapter.ViewPagerAdapter
-import com.example.an16.mynotesapp.ui.SignupFragment
 
 class OnboardingFragment : Fragment() {
 
@@ -29,9 +29,7 @@ class OnboardingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.skip?.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container, SignupFragment())
-                .commit()
+            findNavController().navigate(R.id.action_onboardingFragment_to_signupFragment)
         }
 
         setData()

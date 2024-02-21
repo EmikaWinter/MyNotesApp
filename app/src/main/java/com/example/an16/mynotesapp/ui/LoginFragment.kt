@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.util.Status
 import com.example.an16.mynotesapp.util.Validator
@@ -34,9 +35,7 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.loginToSignup?.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container, SignupFragment())
-                .commit()
+            findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
         }
 
         val validator = Validator()
@@ -62,9 +61,7 @@ class LoginFragment : Fragment() {
             }
 
             if (binding?.loginEmailInput?.error.isNullOrEmpty() && binding?.loginPasswordInput?.error.isNullOrEmpty()) {
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment())
-                    .commit()
+                findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
             }
         }
     }

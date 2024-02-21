@@ -4,7 +4,6 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.os.Bundle
-import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.MenuInflater
 import android.view.View
@@ -12,26 +11,24 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.an16.mynotesapp.R
+import com.example.an16.mynotesapp.controller.ListStateController
 import com.example.an16.mynotesapp.databinding.FragmentSearchBinding
 import com.example.an16.mynotesapp.model.Note
 import com.example.an16.mynotesapp.ui.MainFragment
-import com.example.an16.mynotesapp.ui.editnote.EditNoteDialogFragment
 import com.example.an16.mynotesapp.ui.search.adapter.SearchListAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
-const val ID_EXTRA = "id"
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
@@ -52,6 +49,12 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+//        TODO how to fix it
+        ListStateController.updateList.observe(viewLifecycleOwner) {
+            viewModel.loadListResult("")
+        }
+
+//        TODO
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 (parentFragment as? MainFragment)?.selectFirstTab()
@@ -96,12 +99,13 @@ class SearchFragment : Fragment() {
                     popup.setOnMenuItemClickListener { menuItem ->
                         when (menuItem.itemId) {
                             R.id.edit_option -> {
-                                EditNoteDialogFragment().apply {
-                                    arguments = bundleOf(ID_EXTRA to itemId)
-                                    onChangedItem = {
-                                        viewModel.loadListResult(binding?.searchInput?.text.toString())
-                                    }
-                                }.show(parentFragmentManager, null)
+//                                EditNoteDialogFragment().apply {
+//                                    arguments = bundleOf(ID_EXTRA to itemId)
+//                                    onChangedItem = {
+//                                        viewModel.loadListResult(binding?.searchInput?.text.toString())
+//                                    }
+//                                }.show(parentFragmentManager, null)
+                                findNavController().navigate(SearchFragmentDirections.actionSearchToEditNoteDialogFragment(itemId))
                                 true
                             }
 

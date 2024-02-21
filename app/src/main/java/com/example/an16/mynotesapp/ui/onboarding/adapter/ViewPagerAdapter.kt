@@ -30,7 +30,7 @@ class ViewPagerAdapter : RecyclerView.Adapter<ViewPagerAdapter.ViewHolder>() {
         items = viewPagerModel
     }
 
-    class ViewHolder constructor(
+    class ViewHolder (
         view: View
     ) : RecyclerView.ViewHolder(view) {
 

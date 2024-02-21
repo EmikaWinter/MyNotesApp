@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.databinding.FragmentFirstPageBinding
-import com.example.an16.mynotesapp.ui.onboarding.OnboardingFragment
 
 class FirstPageFragment : Fragment() {
 
@@ -26,14 +26,10 @@ class FirstPageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.openButton?.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container, OnboardingFragment())
-                .commit()
+            findNavController().navigate(R.id.action_firstPageFragment_to_onboardingFragment)
         }
         binding?.loginTextView?.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container, LoginFragment())
-                .commit()
+            findNavController().navigate(R.id.action_firstPageFragment_to_loginFragment)
         }
     }
 }
