@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreenFragment">
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.example.an16.mynotesapp.ui.SplashScreenFragment"
+        android:label="SplashScreenFragment"
+        tools:layout="@layout/fragment_splashscreen">
+        <action
+            android:id="@+id/action_splashScreenFragment_to_firstPageFragment"
+            app:destination="@id/firstPageFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstPageFragment"
+        android:name="com.example.an16.mynotesapp.ui.FirstPageFragment"
+        android:label="fragment_first_page"
+        tools:layout="@layout/fragment_first_page">
+        <action
+            android:id="@+id/action_firstPageFragment_to_onboardingFragment"
+            app:destination="@id/onboardingFragment"
+            app:popUpTo="@id/firstPageFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_firstPageFragment_to_signupFragment"
+            app:destination="@id/signupFragment"
+            app:popUpTo="@id/firstPageFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_firstPageFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/firstPageFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.example.an16.mynotesapp.ui.onboarding.OnboardingFragment"
+        android:label="fragment_onboarding"
+        tools:layout="@layout/fragment_onboarding">
+        <action
+            android:id="@+id/action_onboardingFragment_to_signupFragment"
+            app:destination="@id/signupFragment"
+            app:popUpTo="@id/onboardingFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.an16.mynotesapp.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/signupFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.example.an16.mynotesapp.ui.SignupFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup">
+        <action
+            android:id="@+id/action_signupFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/signupFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signupFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/signupFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.an16.mynotesapp.ui.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+
+    </fragment>
+    <action
+        android:id="@+id/action_global_loginFragment"
+        app:destination="@id/loginFragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/mainFragment"
+        app:popUpToInclusive="true" />
+
+</navigation>

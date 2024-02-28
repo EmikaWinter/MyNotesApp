@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.an16.mynotesapp.R
-import com.example.an16.mynotesapp.Status
-import com.example.an16.mynotesapp.Validator
+import com.example.an16.mynotesapp.util.Status
+import com.example.an16.mynotesapp.util.Validator
 import com.example.an16.mynotesapp.databinding.FragmentSignupBinding
 
 class SignupFragment : Fragment() {
@@ -27,9 +28,7 @@ class SignupFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.signupToLogin?.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container, LoginFragment())
-                .commit()
+            findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
         }
 
         val firstNameInput = binding?.signupFirstnameInputEdit
@@ -83,9 +82,7 @@ class SignupFragment : Fragment() {
                 emailInputLayout?.error.isNullOrEmpty() &&
                 passwordInputLayout?.error.isNullOrEmpty()
             ) {
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment())
-                    .commit()
+                findNavController().navigate(R.id.action_signupFragment_to_mainFragment)
             }
         }
     }

@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.databinding.FragmentMainBinding
-import com.example.an16.mynotesapp.ui.home.HomeFragment
 
 class MainFragment : Fragment() {
 
@@ -25,36 +26,9 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        childFragmentManager.beginTransaction()
-            .replace(R.id.child_container, HomeFragment())
-            .commit()
-
-        binding?.bottomNavigationMenu?.setOnItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.home -> {
-                    childFragmentManager.beginTransaction()
-                        .replace(R.id.child_container, HomeFragment())
-                        .commit()
-                    true
-                }
-
-                R.id.search -> {
-                    childFragmentManager.beginTransaction()
-                        .replace(R.id.child_container, SearchFragment())
-                        .commit()
-                    true
-                }
-
-                R.id.profile -> {
-                    childFragmentManager.beginTransaction()
-                        .replace(R.id.child_container, ProfileFragment())
-                        .commit()
-                    true
-                }
-
-                else -> false
+        childFragmentManager.findFragmentById(R.id.bottom_nav)?.findNavController()
+            ?.let { navController ->
+                binding?.bottomNavigationMenu?.setupWithNavController(navController)
             }
-
-        }
     }
 }

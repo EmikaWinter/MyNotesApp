@@ -5,13 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.an16.mynotesapp.R
-import com.example.an16.mynotesapp.Status
-import com.example.an16.mynotesapp.Validator
+import com.example.an16.mynotesapp.util.Status
+import com.example.an16.mynotesapp.util.Validator
 import com.example.an16.mynotesapp.databinding.FragmentLoginBinding
 import com.example.an16.mynotesapp.repository.SharedPreferencesRepository
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
+
+    @Inject
+    lateinit var sharedPreferencesRepository: SharedPreferencesRepository
 
     private var binding: FragmentLoginBinding? = null
 
@@ -28,9 +35,7 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.loginToSignup?.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container, SignupFragment())
-                .commit()
+            findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
         }
 
         val validator = Validator()
@@ -38,7 +43,7 @@ class LoginFragment : Fragment() {
         binding?.loginButton?.setOnClickListener {
 
             val email = binding?.loginEmailInputEdit?.text.toString()
-            SharedPreferencesRepository.setUserEmail(email)
+            sharedPreferencesRepository.setUserEmail(email)
 
             val emailStatus = validator.validateEmail(email)
             val passwordStatus = validator.validatePassword(binding?.loginPasswordInputEdit?.text.toString())
@@ -56,9 +61,7 @@ class LoginFragment : Fragment() {
             }
 
             if (binding?.loginEmailInput?.error.isNullOrEmpty() && binding?.loginPasswordInput?.error.isNullOrEmpty()) {
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment())
-                    .commit()
+                findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
             }
         }
     }

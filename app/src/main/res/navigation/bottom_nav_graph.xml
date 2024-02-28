@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_nav_draph"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.an16.mynotesapp.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
+
+        <action
+            android:id="@+id/action_home_to_editNoteDialogFragment"
+            app:destination="@id/editNoteDialogFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/search"
+        android:name="com.example.an16.mynotesapp.ui.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_search_to_editNoteDialogFragment"
+            app:destination="@id/editNoteDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.an16.mynotesapp.ui.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.example.an16.mynotesapp.ui.addnote.AddNoteFragment"
+        android:label="fragment_add_note"
+        tools:layout="@layout/fragment_add_note">
+        <action
+            android:id="@+id/action_addNoteFragment_to_home"
+            app:destination="@id/home"
+            app:popUpTo="@id/addNoteFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <dialog
+        android:id="@+id/editNoteDialogFragment"
+        android:name="com.example.an16.mynotesapp.ui.editnote.EditNoteDialogFragment"
+        android:label="EditNoteDialogFragment"
+        tools:layout="@layout/dialog_edit_note">
+        <!--suppress NavigationFile -->
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </dialog>
+
+</navigation>

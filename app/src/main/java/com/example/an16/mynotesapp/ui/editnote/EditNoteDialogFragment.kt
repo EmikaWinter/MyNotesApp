@@ -8,15 +8,16 @@ import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.example.an16.mynotesapp.R
-import com.example.an16.mynotesapp.Validator
+import com.example.an16.mynotesapp.controller.ListStateController
 import com.example.an16.mynotesapp.databinding.DialogEditNoteBinding
+import com.example.an16.mynotesapp.util.Validator
+import dagger.hilt.android.AndroidEntryPoint
 
-private const val ID_EXTRA = "id"
 
+@AndroidEntryPoint
 class EditNoteDialogFragment : DialogFragment() {
-
-    var onChangedItem: (() -> Unit)? = null
 
     private var binding: DialogEditNoteBinding? = null
 
@@ -24,12 +25,14 @@ class EditNoteDialogFragment : DialogFragment() {
 
     private val validator: Validator = Validator()
 
+    private val args: EditNoteDialogFragmentArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DialogEditNoteBinding.inflate(layoutInflater)
+        binding = DialogEditNoteBinding.inflate(inflater)
         return binding?.root
     }
 
@@ -41,7 +44,7 @@ class EditNoteDialogFragment : DialogFragment() {
             binding?.textEditText?.setText(it.text)
         }
 
-        viewModel.getNoteById(arguments?.getInt(ID_EXTRA) ?: 0)
+        viewModel.getNoteById(args.id)
 
         binding?.titleEditText?.run {
             doAfterTextChanged {
@@ -63,6 +66,11 @@ class EditNoteDialogFragment : DialogFragment() {
             }
         }
 
+        viewModel.onChangedItem.observe(viewLifecycleOwner) {
+            ListStateController.updateList.value = Unit
+            dismiss()
+        }
+
         binding?.editButton?.setOnClickListener {
 
             val title = binding?.titleEditText?.text.toString()
@@ -70,13 +78,10 @@ class EditNoteDialogFragment : DialogFragment() {
 
             if (validator.validateText(title) && validator.validateText(text)) {
                 viewModel.editNote(title, text)
-                onChangedItem?.invoke()
-                dismiss()
             } else {
                 Toast.makeText(requireContext(), R.string.empty_note, Toast.LENGTH_LONG).show()
             }
         }
-
     }
 
     override fun onStart() {

@@ -28,9 +28,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_profile" />
-                            <entry key="sourceFile" value="C:\Users\EmikaWinter\Desktop\res Notes app\context-menu-svgrepo-com.svg" />
+                            <entry key="outputName" value="feather_svgrepo_com__1_" />
+                            <entry key="sourceFile" value="C:\Users\EmikaWinter\Desktop\res Notes app\перья\feather-svgrepo-com (1).svg" />
                           </map>
                         </option>
                       </PersistentState>
