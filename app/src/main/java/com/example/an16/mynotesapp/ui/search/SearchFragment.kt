@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -22,7 +21,6 @@ import com.example.an16.mynotesapp.R
 import com.example.an16.mynotesapp.controller.ListStateController
 import com.example.an16.mynotesapp.databinding.FragmentSearchBinding
 import com.example.an16.mynotesapp.model.Note
-import com.example.an16.mynotesapp.ui.MainFragment
 import com.example.an16.mynotesapp.ui.search.adapter.SearchListAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,17 +47,16 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        TODO how to fix it
         ListStateController.updateList.observe(viewLifecycleOwner) {
-            viewModel.loadListResult("")
+            viewModel.loadListResult(binding?.searchInput?.text.toString())
         }
 
 //        TODO
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                (parentFragment as? MainFragment)?.selectFirstTab()
-            }
-        })
+//        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+//            override fun handleOnBackPressed() {
+//                (parentFragment as? MainFragment)?.selectFirstTab()
+//            }
+//        })
         binding?.searchResult?.visibility = View.INVISIBLE
 
         val dividerItemDecoration = DividerItemDecoration(requireContext(), RecyclerView.VERTICAL)

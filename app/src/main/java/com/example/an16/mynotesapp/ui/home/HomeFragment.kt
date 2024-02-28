@@ -22,6 +22,7 @@ import com.example.an16.mynotesapp.controller.ListStateController
 import com.example.an16.mynotesapp.databinding.FragmentHomeBinding
 import com.example.an16.mynotesapp.model.Note
 import com.example.an16.mynotesapp.repository.SharedPreferencesRepository
+import com.example.an16.mynotesapp.ui.MainActivity
 import com.example.an16.mynotesapp.ui.home.adapter.HomeListAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
@@ -73,7 +74,7 @@ class HomeFragment : Fragment() {
 
                     sharedPreferencesRepository.logout()
 
-                    findNavController().navigate(R.id.action_home_to_loginFragment)
+                    (requireActivity() as MainActivity).openLogin()
                     dialog.dismiss()
                 }
                 .setNegativeButton(R.string.no) { dialog, _ ->
@@ -107,12 +108,6 @@ class HomeFragment : Fragment() {
                     popup.setOnMenuItemClickListener { menuItem ->
                         when (menuItem.itemId) {
                             R.id.edit_option -> {
-//                                EditNoteDialogFragment().apply {
-//                                    arguments = bundleOf(ID_EXTRA to itemId)
-//                                    onChangedItem = {
-//                                        viewModel.loadListNote()
-//                                    }
-//                                }.show(parentFragmentManager, null)
                                 findNavController().navigate(
                                     HomeFragmentDirections.actionHomeToEditNoteDialogFragment(
                                         itemId

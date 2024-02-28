@@ -32,10 +32,7 @@ class Validator {
     }
 
     fun validateText(editText: String): Boolean {
-        if (editText.isBlank()) {
-            return false
-        }
-        return true
+        return editText.isNotBlank()
     }
 
     private fun isEmailValid(email: String): Boolean {

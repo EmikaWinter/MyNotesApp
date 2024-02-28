@@ -118,6 +118,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="loginFragment2">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-228" />
+                            <option name="y" value="188" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="profile">
                     <value>
                       <LayoutPositions>
@@ -139,6 +151,15 @@
                             <option name="y" value="40" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_search_to_editNoteDialogFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -152,25 +173,13 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="bottom_nav_graph">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-382" />
-                            <option name="y" value="448" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
                   <entry key="firstPageFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-802" />
-                            <option name="y" value="-91" />
+                            <option name="x" value="-837" />
+                            <option name="y" value="-117" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -201,7 +210,7 @@
                         <option name="myPosition">
                           <Point>
                             <option name="x" value="-420" />
-                            <option name="y" value="116" />
+                            <option name="y" value="151" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -238,8 +247,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-602" />
-                            <option name="y" value="-133" />
+                            <option name="x" value="-685" />
+                            <option name="y" value="-408" />
                           </Point>
                         </option>
                         <option name="myPositions">

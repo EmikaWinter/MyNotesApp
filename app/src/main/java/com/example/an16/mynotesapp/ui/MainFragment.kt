@@ -31,8 +31,4 @@ class MainFragment : Fragment() {
                 binding?.bottomNavigationMenu?.setupWithNavController(navController)
             }
     }
-
-    fun selectFirstTab() {
-        binding?.bottomNavigationMenu?.selectedItemId = R.id.home
-    }
 }

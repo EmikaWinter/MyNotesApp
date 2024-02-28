@@ -13,12 +13,11 @@
         <action
             android:id="@+id/action_home_to_addNoteFragment"
             app:destination="@id/addNoteFragment" />
-        <action
-            android:id="@+id/action_home_to_loginFragment"
-            app:destination="@id/loginFragment" />
+
         <action
             android:id="@+id/action_home_to_editNoteDialogFragment"
             app:destination="@id/editNoteDialogFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/search"
@@ -41,13 +40,16 @@
         tools:layout="@layout/fragment_add_note">
         <action
             android:id="@+id/action_addNoteFragment_to_home"
-            app:destination="@id/home" />
+            app:destination="@id/home"
+            app:popUpTo="@id/addNoteFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <dialog
         android:id="@+id/editNoteDialogFragment"
         android:name="com.example.an16.mynotesapp.ui.editnote.EditNoteDialogFragment"
         android:label="EditNoteDialogFragment"
         tools:layout="@layout/dialog_edit_note">
+        <!--suppress NavigationFile -->
         <argument
             android:name="id"
             app:argType="integer" />
